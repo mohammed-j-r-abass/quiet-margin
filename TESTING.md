@@ -1,5 +1,7 @@
 # Testing
 
+The suite also tests browser-only storage: isolated libraries, reopen persistence, transactional restore rollback, previous-library recovery, backup validation, memory-only API keys, provider consent, and evidence linkage. Run `npm run build:web` for the static website and see `WEB_HOSTING.md` for browser checks.
+
 Use Node.js 24 and install dependencies with `npm ci`.
 
 Run the automated checks:

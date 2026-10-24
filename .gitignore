@@ -1,6 +1,7 @@
 # Dependencies and generated files.
 node_modules/
 dist/
+dist-web/
 coverage/
 test-results/
 playwright-report/

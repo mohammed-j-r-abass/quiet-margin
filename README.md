@@ -1,6 +1,6 @@
 # Quiet Margin
 
-A private research reading app for one person on one laptop. React and PDF.js provide the reading workspace; Express, SQLite, and a private files folder provide persistent storage. No account or cloud deployment is required.
+A personal research reading app with a public browser version and a desktop version. React and PDF.js provide the reading workspace. The browser version saves each library on that visitor's device; the desktop version uses Express, SQLite, and a private files folder. Neither version requires a user account.
 
 ## Features
 
@@ -12,7 +12,19 @@ A private research reading app for one person on one laptop. React and PDF.js pr
 - MLA citations with PDF positions and printed page labels kept separate.
 - Local storage, Markdown exports, and complete library backups.
 
-## Start
+## Public website with device storage
+
+The public build needs only static hosting. Each browser profile saves its own PDFs, notes, recordings, and reading positions in IndexedDB on its device. There is no shared library database, cloud document storage, or sign-in. The website cannot silently read arbitrary folders on a visitor's computer.
+
+Run `npm run build:web` to build `dist-web/`. For a project URL such as `/quiet-margin/`, set `SITE_BASE_PATH=/quiet-margin/` when building. Publish only the contents of `dist-web/`. See [WEB_HOSTING.md](WEB_HOSTING.md) for hosting instructions, privacy boundaries, local backups, and browser limitations.
+
+Browser visitors provide their own optional AI key. Keys stay in the current tab's memory and are cleared on reload or close. Sending library material requires an explicit consent checkbox; transcription requires confirmation for each recording. A provider must support browser requests. Ordinary reading, notes, citations, and backups need no AI key.
+
+Browser storage can be removed by clearing site data, private browsing, or browser cleanup. The storage panel can request persistence and save a backup file to disk. Anyone using the same browser profile can access its library; this release does not add app-level encryption or a password. No claim of complete security is made.
+
+The remaining sections describe the desktop version. Browser-specific differences are documented in `WEB_HOSTING.md`.
+
+## Start the desktop version
 
 Use Node.js **24** (minimum 22.13). Install dependencies in the project folder:
 
