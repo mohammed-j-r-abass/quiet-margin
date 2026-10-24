@@ -1,0 +1,31 @@
+import React,{useState,useEffect,useId} from 'react';
+import {Sparkles,Settings,ChevronDown,Check,LoaderCircle,RefreshCw,Plug,ExternalLink} from 'lucide-react';
+import './ai-connection.css';
+
+const suggested=['gpt-4.1-mini','gpt-5.4-mini','gpt-5-mini','gpt-4o-mini'];
+const nonChat=/(?:embedding|whisper|transcrib|tts-|dall-e|moderation|realtime|gpt-image|sora|babbage|davinci)/i;
+function host(endpoint){try{return new URL(endpoint).host;}catch{return 'Custom endpoint';}}
+export default function AIConnection({config,onSave,request,compact=false}){
+  const [open,setOpen]=useState(!compact||!config.hasApiKey),[endpoint,setEndpoint]=useState(config.endpoint||'https://api.openai.com/v1'),[model,setModel]=useState(config.chatModel||'gpt-4.1-mini'),[key,setKey]=useState(''),[embedding,setEmbedding]=useState(config.embeddingModel||''),[models,setModels]=useState([]),[busy,setBusy]=useState(''),[status,setStatus]=useState(null),[advanced,setAdvanced]=useState(false);
+  const listId=useId();
+  useEffect(()=>{setEndpoint(config.endpoint||'https://api.openai.com/v1');setModel(config.chatModel||'gpt-4.1-mini');setEmbedding(config.embeddingModel||'');setKey('');},[config.endpoint,config.chatModel,config.embeddingModel,config.hasApiKey]);
+  const changed=endpoint!==config.endpoint||model!==config.chatModel||embedding!==(config.embeddingModel||'')||!!key;
+  const draft=()=>({endpoint,chatModel:model,...(key.trim()?{apiKey:key.trim()}:{}),embeddingModel:embedding});
+  async function action(name){
+    setBusy(name);setStatus(null);
+    try{
+      if(name!=='models'&&!model.trim())throw new Error('Enter a model name.');
+      if(name==='save'){await onSave(draft());setKey('');setStatus({kind:'success',message:'Saved. New questions now use '+model.trim()+'.'});}
+      else if(name==='test'){const result=await request('/provider/test',{method:'POST',body:draft()});setStatus({kind:'success',message:result.message+' '+(changed?'Click Save & use to apply these settings.':'')});}
+      else if(name==='models'){const result=await request('/provider/models',{method:'POST',body:draft()});setModels(result.models);setStatus({kind:'info',message:result.models.length+' model IDs loaded from your provider. Choose or type a chat model; Test model confirms usable access and quota.'});}
+    }catch(e){setStatus({kind:'error',message:e.message,action:e.action});setOpen(true);}finally{setBusy('');}
+  }
+  return <section className={'ai-connection '+(compact?'compact':'')} aria-label="AI connection">
+    <div className="ai-connection-top"><div className="ai-connection-label"><Sparkles size={17}/><span>AI model<small>{config.hasApiKey?host(config.endpoint):'Connect an OpenAI-compatible provider'}</small></span></div><div className="model-switch"><input aria-label="AI model name" list={listId} value={model} placeholder="e.g. gpt-4.1-mini" onChange={e=>{setModel(e.target.value);setStatus(null);}}/><datalist id={listId}>{[...new Set([...suggested,...models.filter(id=>!nonChat.test(id))])].map(id=><option key={id} value={id}/>)}</datalist><button type="button" className="secondary" disabled={!!busy||!changed} onClick={()=>action('save')}>{busy==='save'?<LoaderCircle size={14} className="spin"/>:<Check size={14}/>}<span>{open?'Save & use':'Use model'}</span></button><button type="button" className={'icon-button '+(open?'active':'')} aria-label={open?'Hide AI connection settings':'Change AI connection settings'} title="Endpoint, API key, and model settings" onClick={()=>setOpen(v=>!v)}><Settings size={17}/></button></div></div>
+    {open&&<div className="ai-connection-fields"><div className="connection-form-grid"><label className="field">Endpoint<input aria-label="AI endpoint" value={endpoint} placeholder="https://api.openai.com/v1" onChange={e=>{setEndpoint(e.target.value);setModels([]);setStatus(null);if(host(e.target.value)!==host(config.endpoint))setEmbedding('');}}/><small>Base URL or a full /chat/completions URL.</small></label><label className="field">API key<input aria-label="AI API key" type="password" autoComplete="off" value={key} placeholder={config.hasApiKey?'Key saved on server · blank keeps it':'Paste your provider API key'} onChange={e=>{setKey(e.target.value);setStatus(null);}}/><small>{config.hasApiKey?'Your saved key is never returned to this screen.':'Keys are stored on this laptop’s server.'}</small></label></div>
+      <div className="connection-tools"><button type="button" className="secondary" disabled={!!busy} onClick={()=>action('models')}>{busy==='models'?<LoaderCircle size={14} className="spin"/>:<RefreshCw size={14}/>}Load models</button><button type="button" className="secondary" disabled={!!busy} onClick={()=>action('test')}>{busy==='test'?<LoaderCircle size={14} className="spin"/>:<Plug size={14}/>}Test model</button><button type="button" className="text-button" onClick={()=>setAdvanced(v=>!v)}>Optional embeddings<ChevronDown size={13}/></button></div><p className="connection-help">Enter your endpoint, model name, and key, then Save & use. Test model sends only a tiny test prompt; it does not send your papers. Loading a model list does not verify billing quota.</p>
+      {advanced&&<div className="embedding-options"><label className="toggle-label"><input type="checkbox" checked={!!embedding} onChange={e=>setEmbedding(e.target.checked?'text-embedding-3-small':'')}/>Use a separate embedding model</label>{embedding&&<label className="field">Embedding model name<input aria-label="Embedding model name" value={embedding} onChange={e=>setEmbedding(e.target.value)}/></label>}<p>Optional. With embeddings off, your selected chat model finds relevant notes by meaning before answering. Embeddings can make searches more efficient for a larger library. Your provider must support the embedding model you enter.</p></div>}
+    </div>}
+    {status&&<div role="status" className={'connection-status '+status.kind}>{status.kind==='success'&&<Check size={15}/>}<div>{status.message}{status.action==='billing'&&host(endpoint)==='api.openai.com'&&<a href="https://platform.openai.com/settings/organization/billing/overview" target="_blank" rel="noreferrer">Open API billing<ExternalLink size={12}/></a>}</div></div>}
+  </section>;
+}

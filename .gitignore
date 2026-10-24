@@ -1,0 +1,46 @@
+# Dependencies and generated files.
+node_modules/
+dist/
+coverage/
+test-results/
+playwright-report/
+
+# Private library files and local configuration.
+data/
+work/
+outputs/
+.env
+.env.*
+!.env.example
+secrets.json
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+*.pem
+*.key
+*.p12
+*.pfx
+.codex/
+.agents/
+
+# Documents, recordings, backups, and local reports.
+*.pdf
+!tests/fixtures/continuous-pages.pdf
+*.webm
+*.ogg
+*.mp3
+*.mp4
+*.m4a
+*.wav
+*.zip
+/VERIFICATION.md
+
+# Logs and temporary files.
+*.log
+*.log.*
+*.tmp
+*.bak
+.DS_Store
+Thumbs.db
+Desktop.ini
