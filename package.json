@@ -1,11 +1,7 @@
 {
   "name": "quietmargin",
   "version": "1.0.0",
-  "description": "A private local research reader with anchored thoughts, audio, and evidence-linked retrieval",
-  "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
+  "description": "A personal research reader for PDFs, notes, citations, and source-linked search",
   "scripts": {
     "start": "node launcher.mjs",
     "build": "node build.mjs",
@@ -15,8 +11,6 @@
     "build:web": "node build.mjs --web",
     "test:browser-storage": "node --test tests/browser-storage.test.mjs"
   },
-  "keywords": [],
-  "author": "",
   "license": "ISC",
   "type": "module",
   "dependencies": {
