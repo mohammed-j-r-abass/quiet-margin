@@ -1,0 +1,115 @@
+/* Dark theme colors for reading. */
+[data-theme=dark]{
+  --bg:#2d3331;
+  --surface:#373f39;
+  --subtle:#414b3e;
+  --ink:#eeeee2;
+  --muted:#c0c9b7;
+  --line:#56614f;
+  --green:#bdcf9b;
+  --green-light:#46553a;
+  --cream:#404837;
+  --shadow:0 12px 40px #19201c40;
+  color:var(--ink);
+  background:var(--bg);
+  color-scheme:dark;
+}
+[data-theme=dark] body{background:var(--bg)}
+[data-theme=dark] .navigation{background:#35402e;border-color:#55604b}
+[data-theme=dark] .brand{color:#f0eedf}
+[data-theme=dark] .brand-icon{background:#46543b;border-color:#7a8a62;color:#dfebc7}
+[data-theme=dark] .brand-dot{color:#bfd197}
+[data-theme=dark] .nav-label{color:#c3cdb4;font-size:10px}
+[data-theme=dark] .navigation nav button,[data-theme=dark] .collections button,[data-theme=dark] .nav-bottom>button{color:#d5ddc9}
+[data-theme=dark] .navigation nav button{font-size:13px}
+[data-theme=dark] .collections button{font-size:12px}
+[data-theme=dark] .navigation nav button.selected,[data-theme=dark] .collections button.selected{background:#526241;color:#f0f4e5}
+[data-theme=dark] .navigation nav button:hover,[data-theme=dark] .collections button:hover,[data-theme=dark] .nav-bottom>button:hover{background:#46553a;color:#f0f4e5}
+[data-theme=dark] .navigation button small{color:#d0ddbb}
+[data-theme=dark] .nav-divider{background:#57634c}
+[data-theme=dark] .nav-footer{border-color:#57634c;color:#c5cfb8}
+[data-theme=dark] .local-badge{color:#d2ddc3;font-size:11px}
+[data-theme=dark] .local-badge small{color:#b9c6a7;font-size:10px}
+[data-theme=dark] .status-dot{background:#bdcf94;box-shadow:0 0 0 3px #53653e}
+[data-theme=dark] .topbar{background:#303832}
+[data-theme=dark] .breadcrumb{color:#b7c3ae;font-size:12px}
+[data-theme=dark] .breadcrumb strong{color:#e4ead9}
+[data-theme=dark] .saving{color:#c1cdb6;font-size:11px}
+[data-theme=dark] .shortcut{color:#c7d2bb;border-color:#66725b}
+[data-theme=dark] .avatar{background:#52613f;border-color:#424e36;color:#f0f3e7}
+[data-theme=dark] .primary{background:#a8ba82;color:#202c1c;font-weight:650}
+[data-theme=dark] .primary:hover{background:#bed098;color:#202c1c}
+[data-theme=dark] .secondary:hover,[data-theme=dark] .icon-button:hover{background:#495540;color:#f0f4e5}
+[data-theme=dark] input:focus,[data-theme=dark] textarea:focus,[data-theme=dark] select:focus{border-color:#bdcf9b;box-shadow:0 0 0 3px #b7cc8a20}
+[data-theme=dark] input::placeholder,[data-theme=dark] textarea::placeholder,[data-theme=dark] .search-input input::placeholder,[data-theme=dark] .chat-composer textarea::placeholder{color:#b7c1ac;opacity:1}
+[data-theme=dark] .section-eyebrow,[data-theme=dark] .card-kicker,[data-theme=dark] .card-author,[data-theme=dark] .card-footer,[data-theme=dark] .note-date,[data-theme=dark] .content-label,[data-theme=dark] .sidebar-export,[data-theme=dark] .page-bottom-label,[data-theme=dark] .sidebar-subtitle,[data-theme=dark] .chat-footnote,[data-theme=dark] .provider-disclosure,[data-theme=dark] .note-doc-title,[data-theme=dark] .evidence-source{color:var(--muted)}
+[data-theme=dark] .library-heading h1 em{color:#c5d5ad}
+[data-theme=dark] .library-heading p,[data-theme=dark] .page-description{font-size:12px}
+[data-theme=dark] .library-stats b,[data-theme=dark] .library-stats svg,[data-theme=dark] .search-input{color:#d2debc}
+[data-theme=dark] .card-author{font-size:11px}
+[data-theme=dark] .card-footer,[data-theme=dark] .note-date{font-size:10px}
+[data-theme=dark] .card-tags span{background:#46543a;border-color:#64734e;color:#e0ebce;font-size:9px}
+[data-theme=dark] .card-tags .needs-review{background:#544d35;border-color:#796d46;color:#efdda9}
+[data-theme=dark] .paper-cover{background:#4b573e}
+[data-theme=dark] .cover-1{background:#50564c}
+[data-theme=dark] .cover-2{background:#44594c}
+[data-theme=dark] .paper-mini{background:#d0d6c5}
+[data-theme=dark] .pdf-pill,[data-theme=dark] .reading-pill{background:#37432ee8;border-color:#758564;color:#e8efd9}
+[data-theme=dark] .import-card{background:#3b4734;border-color:#7c8c65;color:#e1e9d5}
+[data-theme=dark] .import-card:hover{background:#45533a;border-color:#a9bb88}
+[data-theme=dark] .import-card>span{background:#526341;color:#dbe9c7}
+[data-theme=dark] .import-card p,[data-theme=dark] .import-card small{color:#c4cfb6}
+[data-theme=dark] .library-tip{background:#3a4533;border-color:#59664b}
+[data-theme=dark] .tip-icon{background:#52613f;color:#d7e4c1}
+[data-theme=dark] .library-tip strong{color:#e4ecd7}
+[data-theme=dark] .library-tip p{color:#c1ccb1;font-size:11px}
+[data-theme=dark] .tip-decoration{color:#60734a}
+[data-theme=dark] .pdf-region{background:#343a38}
+[data-theme=dark] .pdf-controls,[data-theme=dark] .reader-footer{background:#3b4539;color:#c4cfb7;border-color:#5b674f}
+[data-theme=dark] .pdf-scroller{scrollbar-color:#7c8d67 #343a38}
+[data-theme=dark] .reader-footer{font-size:9px}
+[data-theme=dark] .note-card.selected{border-color:#b8c990;box-shadow:0 0 0 2px #bfd29b20}
+[data-theme=dark] .quote-link blockquote,[data-theme=dark] .evidence-card blockquote,[data-theme=dark] .editor-quotation blockquote{color:#e1e7d5;border-color:#8c9e70}
+[data-theme=dark] .quote-link blockquote{font-size:14px}
+[data-theme=dark] .thought-text p,[data-theme=dark] .transcript-block p,[data-theme=dark] .evidence-card p{font-size:12px}
+[data-theme=dark] .content-label{font-size:9px;color:#c7d5b4}
+[data-theme=dark] .sidebar-subtitle{font-size:11px}
+[data-theme=dark] .note-doc-title{color:#d0debd}
+[data-theme=dark] .page-chip{background:#605737;color:#f5e5ac;font-size:9px}
+[data-theme=dark] .page-chip.sage{background:#4d603d;color:#e3efce}
+[data-theme=dark] .page-chip.rose{background:#65494d;color:#f5d8db}
+[data-theme=dark] .page-chip.blue{background:#465b70;color:#dbeafa}
+[data-theme=dark] .empty-notes,[data-theme=dark] .empty-notes h3{color:#d1ddc1}
+[data-theme=dark] .empty-notes>svg{color:#adbd95}
+[data-theme=dark] .empty-notes p{color:#c3ceb7}
+[data-theme=dark] .audio-status{color:#e5d3a4;font-size:10px}
+[data-theme=dark] .selection-toolbar{background:#4a5e3a;color:#f3f5eb}
+[data-theme=dark] .scan-notice,[data-theme=dark] .inline-warning{background:#57503a;color:#f0dfb4}
+[data-theme=dark] .inline-error,[data-theme=dark] .error-banner,[data-theme=dark] .connection-status.error{background:#55433c;color:#f0cfc2;border-color:#796053}
+[data-theme=dark] .danger{color:#edb4a3}
+[data-theme=dark] .record-stop{background:#5b4239;color:#f1c8b8}
+[data-theme=dark] .field{color:#d6dfcb;font-size:11px}
+[data-theme=dark] .field small{color:#bdc8b0}
+[data-theme=dark] .modal-backdrop{background:#202a20b3}
+[data-theme=dark] .privacy-note{background:#46543b;color:#deebc8}
+[data-theme=dark] .privacy-note strong{color:#e5eed8}
+[data-theme=dark] .privacy-note p{color:#cad7b8;font-size:10px}
+[data-theme=dark] .private-pill,[data-theme=dark] .sparkle-emblem{background:#46543b;border-color:#788a5c;color:#dae8c5}
+[data-theme=dark] .chat-message.user{background:#4b5a3e;color:#f1f3e8}
+[data-theme=dark] .ai-interpretation{border-color:#a0b57d}
+[data-theme=dark] .suggestions button{color:#d1dfbb}
+[data-theme=dark] .suggestions svg{color:#bfce9f}
+[data-theme=dark] .suggestions button:hover,[data-theme=dark] .evidence-card:hover{border-color:#afc188;background:#3d4838}
+[data-theme=dark] .chat-composer{border-color:#87996d}
+[data-theme=dark] .chat-composer textarea{font-size:13px}
+[data-theme=dark] .chat-footnote,[data-theme=dark] .provider-disclosure{font-size:10px;line-height:1.8}
+[data-theme=dark] .connection-status.success{color:#e1efcc}
+[data-theme=dark] .connection-status.info{color:#d7e2c9}
+[data-theme=dark] .connection-help{font-size:10px;line-height:1.8}
+[data-theme=dark] .ai-connection-label{color:#d0e1ae}
+[data-theme=dark] .ai-connection-label small,[data-theme=dark] .connection-form-grid .field small{font-size:9px;color:#c0ccb2}
+[data-theme=dark] .model-switch>input,[data-theme=dark] .connection-form-grid .field input{font-size:12px}
+[data-theme=dark] .connection-status{font-size:11px}
+[data-theme=dark] .toast{background:#536744;color:#f3f7eb;border:1px solid #839a65}
+[data-theme=dark] .loading-app{color:#e1edce}
+@media(max-width:760px){[data-theme=dark] .navigation nav button,[data-theme=dark] .nav-bottom>button{font-size:0}}

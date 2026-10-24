@@ -1,0 +1,20 @@
+.quick-highlight{position:relative;display:flex;align-items:stretch;border-right:1px solid #ffffff30;margin-right:3px;padding-right:3px}
+.selection-toolbar .highlight-apply{gap:6px;padding-right:5px}
+.selection-toolbar .highlight-color-toggle{padding-left:4px;padding-right:5px}
+.current-highlight-color{width:9px;height:9px;border-radius:50%;display:inline-block;margin-left:1px}
+.highlight-colors{position:absolute;top:100%;left:0;padding-top:5px;z-index:2}
+.highlight-colors.above{top:auto;bottom:100%;padding-top:0;padding-bottom:5px}
+.highlight-colors-inner{background:var(--surface);color:var(--ink);border:1px solid var(--line);box-shadow:var(--shadow);border-radius:7px;padding:10px;width:204px}
+.highlight-colors-inner>span{font-size:10px;color:var(--muted);display:block;margin:0 2px 8px}
+.highlight-colors-inner>div{display:flex;justify-content:space-between;gap:3px}
+.selection-toolbar button.quick-color{display:flex;flex-direction:column;gap:5px;padding:5px;border-radius:5px;align-items:center;min-width:39px;color:var(--ink)}
+.selection-toolbar button.quick-color:hover,.selection-toolbar button.quick-color:focus-visible{background:var(--subtle)}
+.quick-color i{display:grid;place-items:center;width:26px;height:26px;border-radius:50%;color:#263324;font-style:normal}
+.quick-color small{font-size:9px}
+.reader-expand{display:inline-flex;gap:7px;align-items:center;border:1px solid var(--line);border-radius:5px;padding:7px 9px;color:var(--ink);font-size:11px;white-space:nowrap}
+.reader-expand:hover{background:var(--subtle)}
+.reader-expanded>.navigation,.reader-expanded>.main-shell>.topbar,.reader-expanded>.main-shell>.document-tabs{display:none}
+.reader-expanded .reader-heading{min-height:49px;padding-top:8px;padding-bottom:8px}
+.reader-expanded .pdf-scroller{padding:18px 24px}
+.reader-expanded .notes-sidebar{max-width:calc(100vw - 40px)}
+@media(max-width:760px){.reader-heading{flex-wrap:wrap}.reader-title{flex:1;min-width:120px}.reader-actions{margin-left:auto}.reader-expand{padding:6px;font-size:10px}.reader-expanded .pdf-scroller{padding:12px}.selection-toolbar button{padding:9px 7px;gap:5px}}

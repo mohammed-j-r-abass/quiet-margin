@@ -1,0 +1,14 @@
+.pdf-pages{position:relative;min-width:100%;overflow-anchor:none}
+.pdf-page-block{position:relative;margin:0 auto 24px;overflow-anchor:none}
+.pdf-page-block:last-child{margin-bottom:0}
+.continuous-page-label{display:flex;justify-content:space-between;gap:12px;padding:8px 2px 11px;font-size:11px;line-height:1.5;color:var(--muted);white-space:nowrap}
+.continuous-page-label b{font-weight:600;color:var(--ink)}
+.pdf-page-placeholder{position:absolute;inset:0;display:flex;align-items:flex-start;justify-content:center;gap:10px;padding:70px 20px;background:#fff;color:#687263;font-size:12px}
+.pdf-page-placeholder:has(p){flex-direction:column;align-items:center;justify-content:flex-start}
+.pdf-preparing{display:flex;justify-content:center;align-items:center;gap:10px;padding:70px 20px;color:var(--muted);font-size:13px}
+.note-page-reference{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:9px 0;margin:0 0 9px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted)}
+.note-page-reference>span{display:flex;align-items:center;gap:6px;flex-wrap:wrap}
+.note-page-reference strong{color:var(--ink);font-weight:600}
+.note-page-reference .text-button{font-size:10px;white-space:nowrap;color:var(--green);gap:4px}
+.citation-page-reference{padding:11px 13px;background:var(--subtle);border:1px solid var(--line);border-radius:6px;font-size:12px;margin:0 0 18px;color:var(--ink)}
+.notes-sidebar .page-chip{font-size:10px;padding:5px 7px}
